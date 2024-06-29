@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Weather App</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
     <nav>
         <form class="search-form">
-            <input type="text" name="keyword" id="keyword" placeholder="Enter location">
+            <input type="text" name="keyword" id="keyword" placeholder="Enter location" required>
             <input type="submit" value="Search">
         </form>
     </nav>
@@ -22,11 +23,15 @@
             </div>
         </div>
     </main>
-
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
     <footer>
         Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
     </footer>
-    <script src="script.js"></script>
 </body>
 
 </html>

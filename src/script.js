@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dayForecastInfoDiv = document.getElementById("day-forecast-info");
     const weekForecastInfoDiv = document.getElementById("week-forecast-info");
 
+    const loader = document.getElementById("loading");
     const modal = document.getElementById("modal");
     const modalMessage = document.getElementById("modal-message");
     const closeButton = document.querySelector(".close-button");
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function searchWeather(event) {
         event.preventDefault();
+        loader.style.display = "block";
 
         const formData = new FormData(searchForm);
         const keyword = formData.get("keyword");
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             createWeatherOtherInfoDOM(weather)
             createDayForecaseInfoDOM(weather);
             createWeekForecaseInfoDOM(weather);
+            loader.style.display = "none";
         }
     }
 

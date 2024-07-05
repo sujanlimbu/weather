@@ -149,6 +149,21 @@ nav {
     transform: translateY(-5px);
 }
 
+.loading {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
 footer p {
     font-family: Arial, sans-serif;
     font-size: smaller;

@@ -1,6 +1,6 @@
 import './style.css';
 import { getWeatherForecast, generateIconUrl } from "./weather";
-import {getHourAmPm, getDaysName} from "./datetimeUtil";
+import { getHourAmPm, getDaysName } from "./datetimeUtil";
 
 document.addEventListener("DOMContentLoaded", () => {
     const weatherInfoDiv = document.getElementById("weather-info");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const weather = await getWeatherForecast(keyword);
         if (weather.error) {
             showModal(weather.error);
-        } else{
+        } else {
             createWeatherInfoDOM(weather);
             createWeatherOtherInfoDOM(weather)
             createDayForecaseInfoDOM(weather);
@@ -63,11 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function createWeatherInfoDOM(data) {
         weatherInfoDiv.innerHTML = "";
         const headingLocation = document.createElement("h2");
-        headingLocation.textContent = data.location.name + ", " + data.location.country;
+        headingLocation.textContent = `${data.location.name}, ${data.location.country}`;
         weatherInfoDiv.appendChild(headingLocation);
 
         const headingCondition = document.createElement("h4");
-        headingCondition.textContent = data.current.condition.text;
+        headingCondition.textContent = `${data.current.condition.text}`;
         weatherInfoDiv.appendChild(headingCondition);
 
         const conditionIcon = document.createElement("img");
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         weatherInfoDiv.appendChild(conditionIcon);
 
         const currentTemp = document.createElement("h1");
-        currentTemp.textContent = data.current.temp_c + "°C";
+        currentTemp.textContent = `${data.current.temp_c}°C`;
         weatherInfoDiv.appendChild(currentTemp);
 
         const maxMinTemp = document.createElement("p");
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         weatherInfoDiv.appendChild(maxMinTemp);
 
         const lastUpdated = document.createElement("p");
-        lastUpdated.textContent = "Last updated: " + data.current.last_updated;
+        lastUpdated.textContent = `Last updated: ${data.current.last_updated}`;
         weatherInfoDiv.appendChild(lastUpdated);
     }
 
@@ -104,6 +104,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const moonset = document.createElement("p");
         moonset.textContent = `Moonset: ${data.forecast.forecastday[0].astro.moonset}`;
         weatherOtherInfoDiv.appendChild(moonset);
+
+        const hr = document.createElement("hr");
+        weatherOtherInfoDiv.appendChild(hr);
+
+        const hudmidity = document.createElement("p");
+        hudmidity.textContent = `Humidity: ${data.current.humidity}%`;
+        weatherOtherInfoDiv.appendChild(hudmidity);
+
+        const rainChance = document.createElement("p");
+        rainChance.textContent = `Chance of Rain: ${data.forecast.forecastday[0].day.daily_chance_of_rain}%`;
+        weatherOtherInfoDiv.appendChild(rainChance);
+
+        if (data.forecast.forecastday[0].day.daily_will_it_snow) {
+            const snowChance = document.createElement("p");
+            snowChance.textContent = `Chance of Snow: ${data.forecast.forecastday[0].day.daily_chance_of_snow}`;
+            weatherOtherInfoDiv.appendChild(snowChance);
+        }
+
+        const wind = document.createElement("p");
+        wind.textContent = `Wind: ${data.current.wind_kph} KM/H (${data.current.wind_degree}° ${data.current.wind_dir})`;
+        weatherOtherInfoDiv.appendChild(wind);
     }
 
     function createDayForecaseInfoDOM(data) {

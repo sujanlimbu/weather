@@ -1,5 +1,43 @@
 body {
     font-family: Arial, sans-serif;
+    display: block;
+    margin: 0px;
+}
+
+nav {
+    background-color: #F5F7F8;
+    color: black;
+}
+
+.nav-content {
+    margin-top: 0%;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-form input[type="text"] {
+    border: black;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: thin;
+}
+
+.btn {
+    margin-left: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #45474B;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #F4CE14;
 }
 
 .modal {
@@ -39,4 +77,79 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.weather-today h3,
+.forecast-today h3,
+.forecast-week h3 {
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
+.weather-today .content {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.weather-today .content>div {
+    background-color: #F5F7F8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease-in-out;
+}
+
+.forecast-today .content {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    /* Prevent items from wrapping to the next line */
+    padding: 10px;
+    padding-bottom: 24px;
+}
+
+#day-forecast-info>div {
+    background-color: #F5F7F8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease-in-out;
+}
+
+.forecast-week .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: auto;
+    padding: 10px;
+}
+
+#week-forecast-info>div {
+    background-color: #F5F7F8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease-in-out;
+}
+
+.mini-condition-icon {
+    width: 30px;
+}
+
+#week-forecast-info>div:hover,
+#day-forecast-info>div:hover,
+.weather-today .content>div:hover {
+    transform: translateY(-5px);
+}
+
+footer p {
+    font-family: Arial, sans-serif;
+    font-size: smaller;
 }

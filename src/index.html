@@ -8,16 +8,38 @@
 </head>
 
 <body>
-    <nav>
-        <form class="search-form">
-            <input type="text" name="keyword" id="keyword" placeholder="Enter location" required>
-            <input type="submit" value="Search">
-        </form>
-    </nav>
+    <header>
+        <nav>
+            <div class="nav-content">
+                <form class="search-form">
+                    <input type="text" name="keyword" id="keyword" placeholder="Enter location" required>
+                    <input class="btn" type="submit" value="Search">
+                </form>
+            </div>
+        </nav>
+    </header>
     <main>
-        <div id="content">
-            <div id="weather-info">
+        <div class="weather-today">
+            <h3>Today's Weather</h3>
+            <div class="content">
+                <div id="weather-info">
 
+                </div>
+                <div id="weather-other-info">
+    
+                </div>
+            </div>
+        </div>
+        <div class="forecast-today">
+            <h3>Today's Hourly Weather</h3>
+            <div class="content" id="day-forecast-info">
+               
+            </div>
+        </div>
+        <div class="forecast-week">
+            <h3>A week's Weather</h3>
+            <div class="content" id="week-forecast-info">
+               
             </div>
         </div>
     </main>
@@ -28,7 +50,7 @@
         </div>
     </div>
     <footer>
-        Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+        <p>Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a></p>
     </footer>
 </body>
 
